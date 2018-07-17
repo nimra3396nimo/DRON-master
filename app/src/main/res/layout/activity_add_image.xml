@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.nimra.dron.add_image">
+
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Time"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Longitude"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="latitude"
+        android:inputType="textPersonName" />
+
+    <ImageView
+        android:id="@+id/newsimg"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#dd4739"
+        android:text="ADD"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>
