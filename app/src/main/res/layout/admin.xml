@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:text="Supervisor Profile"
+        android:layout_marginLeft="100dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
+        android:text="Name:"
+        android:textStyle="bold"
+        android:layout_marginLeft="21dp" />
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/cnic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="126dp"
+        android:text="Cnic:"
+        android:layout_marginLeft="21dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="166dp"
+        android:text="Phone Number:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:textColor="#000"
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="206dp"
+        android:text="Type:"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="132dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="246dp"
+        android:layout_marginLeft="100dp" />
+</RelativeLayout>

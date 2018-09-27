@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -30,7 +32,6 @@ import com.squareup.picasso.Picasso;
 
 public class admin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase mfirebaseDatabase;
     private TextView name;
@@ -46,8 +47,7 @@ public class admin extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-
-        mDatabase = FirebaseDatabase.getInstance().getReference("system");
+       /* mDatabase = FirebaseDatabase.getInstance().getReference("system");
 
         firebaseAuth = FirebaseAuth.getInstance();
         mfirebaseDatabase = FirebaseDatabase.getInstance();
@@ -87,9 +87,6 @@ public class admin extends AppCompatActivity
                     Picasso.with(admin.this).load(uInfo.getImg().toString()).into(img);
 
 
-
-
-
                 }
             }
 
@@ -98,9 +95,7 @@ public class admin extends AppCompatActivity
 
             }
         });
-
-
-
+*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -112,6 +107,8 @@ public class admin extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        displaySelectedScreen(R.id.nav_profile);
+
     }
 
     @Override
@@ -131,23 +128,39 @@ public class admin extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        displaySelectedScreen(item.getItemId());
+        return true;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void displaySelectedScreen(int itemId){
 
-        if (id == R.id.nav_profile) {
+        Fragment fragment = null;
 
-        } else if (id == R.id.nav_gallery) {
-            Intent i=new Intent(admin.this,gallery.class);
-            startActivity(i);
-        } else if (id == R.id.nav_logout) {
-            firebaseAuth.signOut();
-            finish();
-            startActivity(new Intent(this, login.class));
-
-        } else if (id == R.id.nav_exit) {
-            finishAffinity();
+        //initializing the fragment object which is selected
+        switch (itemId) {
+            case R.id.nav_profile:
+                fragment= new adminfragment();
+                break;
+            case R.id.nav_gallery:
+                fragment= new galleryfragment();
+                break;
+            case R.id.nav_logout:
+                firebaseAuth = FirebaseAuth.getInstance();
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(this, login.class));
+            case R.id.nav_exit:
+                finishAffinity();
         }
+
+        //replacing the fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.adminlayout, fragment);
+            ft.commit();
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }

@@ -43,8 +43,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     }
     private void userlogin(){
-        String email=edtemail.getText().toString().trim();
-        String password=edtpassword.getText().toString().trim();
+        final String email=edtemail.getText().toString().trim();
+        final String password=edtpassword.getText().toString().trim();
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this, "Please Enter Email", Toast.LENGTH_LONG).show();
@@ -66,7 +66,13 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                         if(task.isSuccessful()){
                             finish();
                             startActivity(new Intent(getApplicationContext(), admin.class));
+
                         }
+                        else if( email.equals("systemmanager@yahoo.com") && password.equals("123456")) {
+                            Intent i = new Intent(login.this, sytemManager.class);
+                            startActivity(i);
+                        }
+
                         else {
 
                             Toast.makeText(login.this, "Invaild Email or Password.", Toast.LENGTH_SHORT).show();

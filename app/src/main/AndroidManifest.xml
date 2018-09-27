@@ -47,7 +47,9 @@
         <activity
             android:name=".gallery"
             android:label="@string/title_activity_gallery"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".sytemManager" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
