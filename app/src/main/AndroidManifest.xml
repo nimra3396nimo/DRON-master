@@ -50,6 +50,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".sytemManager" />
         <activity android:name=".MainActivity"></activity>
+
     </application>
 
 </manifest>

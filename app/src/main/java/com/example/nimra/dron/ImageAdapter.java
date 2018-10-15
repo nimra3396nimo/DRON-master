@@ -1,7 +1,10 @@
 package com.example.nimra.dron;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +41,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         holder.textViewtime.setText(uploadCurrent.getTime());
         holder.textViewlongitude.setText(uploadCurrent.getLongitude());
         holder.textViewlatitude.setText(uploadCurrent.getLatitude());
-        Picasso.with(mContext)
-                .load(uploadCurrent.getmImageUrl())
-                .placeholder(R.mipmap.ic_launcher)
-                .fit()
-                .centerCrop()
-                .into(holder.imageView);
+        String img = uploadCurrent.getmImageUrl();
+        String base64Image = img.split(",")[1];
+        String add = "//Z";
+        base64Image = base64Image+add;
+
+        byte[] decodeString = Base64.decode(base64Image, Base64.DEFAULT);
+        Bitmap decodeo = BitmapFactory.decodeByteArray(decodeString, 0, decodeString.length);
+        holder.imageView.setImageBitmap(decodeo);
     }
 
     @Override
